@@ -65,6 +65,22 @@ The model is evaluated using:
 - **RMSE:** Root Mean Squared Error
 - **MAPE:** Mean Absolute Percentage Error
 
+## Results
+
+### 2025 Out-of-Sample Performance
+
+The notebook was executed on August 25, 2026 using the downloaded NIFTY 50 data available at runtime.
+
+| Metric | Result |
+|---|---:|
+| **MAE** | **99,490** |
+| **RMSE** | **136,338** |
+| **MAPE** | **33.09%** |
+
+The final model was then refit using all available observations and produced a **90-business-day forward forecast** from **August 25, 2026 to December 28, 2026**, with 90% prediction intervals.
+
+These results are runtime-dependent because Yahoo Finance data can be revised and new observations become available over time.
+
 ## Project Structure
 
 ```text
@@ -76,12 +92,6 @@ NIFTY-50-Time-Series-Forecasting/
 ├── requirements.txt
 └── README.md
 ```
-
-## Results
-
-The notebook computes the 2025 out-of-sample MAE, RMSE, and MAPE directly from the downloaded data and prints them in the **Key Results** section. It also produces a 90-business-day forward forecast after refitting the model on all available observations.
-
-Results are intentionally generated at runtime because Yahoo Finance data can change as historical data is revised or new observations become available.
 
 ## Disclaimer
 
