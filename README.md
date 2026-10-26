@@ -4,7 +4,7 @@ Time-series forecasting of NIFTY 50 trading volume using historical market data 
 
 ## Project Overview
 
-This project treats NIFTY 50 trading volume as a financial time-series forecasting problem. It performs exploratory analysis, applies a chronological train/test split, fits a Prophet model with trend and seasonal components, evaluates the model on an out-of-sample 2025 holdout, and generates a 90-business-day forward forecast with 90% prediction intervals.
+This project treats NIFTY 50 trading volume as a financial time-series forecasting problem. It performs exploratory analysis, applies a chronological train/test split, fits a Prophet model with trend and seasonal components, evaluates the model on an out-of-sample 2025 holdout, and generates a 90-weekday forward forecast approximation with 90% prediction intervals.
 
 ## Features
 
@@ -18,7 +18,7 @@ This project treats NIFTY 50 trading volume as a financial time-series forecasti
 - Inspect residuals, seasonal components, and empirical prediction-interval coverage
 - Optionally run walk-forward cross-validation
 - Visualize actual vs predicted 2025 volume
-- Generate a 90-business-day forward forecast
+- Generate a 90-weekday forward forecast approximation
 - Visualize forecast uncertainty using prediction intervals
 
 ## Technologies
