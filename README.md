@@ -13,7 +13,10 @@ This project treats NIFTY 50 trading volume as a financial time-series forecasti
 - Apply a log transformation to stabilize volume scale
 - Use a chronological train/test split to avoid look-ahead bias
 - Model weekly and yearly seasonality with Prophet
-- Evaluate forecasts using MAE, RMSE, and MAPE
+- Compare Prophet with naive and weekday-median baselines on the same holdout dates
+- Evaluate forecasts using MAE, RMSE, WAPE, MAPE, and MASE
+- Inspect residuals, seasonal components, and empirical prediction-interval coverage
+- Optionally run walk-forward cross-validation
 - Visualize actual vs predicted 2025 volume
 - Generate a 90-business-day forward forecast
 - Visualize forecast uncertainty using prediction intervals
@@ -65,21 +68,13 @@ The model is evaluated using:
 - **RMSE:** Root Mean Squared Error
 - **MAPE:** Mean Absolute Percentage Error
 
-## Results
+## Evaluation and Results
 
-### 2025 Out-of-Sample Performance
+The notebook now evaluates the 2025 chronological holdout while retaining flagged low/zero-volume observations, compares Prophet against a fixed-origin naive forecast and a weekday-median baseline, and reports MAE, RMSE, WAPE, MAPE, and MASE. It also includes residual diagnostics, empirical prediction-interval coverage, Prophet component plots, and an optional walk-forward cross-validation cell.
 
-The notebook was executed on August 25, 2026 using the downloaded NIFTY 50 data available at runtime.
+**Reproduce the results:** Open `notebooks/nifty50_volume_forecasting.ipynb`, run all cells from top to bottom, and use the newly generated metric tables. Previous saved numbers are not reproduced here because they were generated under the earlier filtering approach and should not be compared directly with the updated evaluation.
 
-| Metric | Result |
-|---|---:|
-| **MAE** | **99,490** |
-| **RMSE** | **136,338** |
-| **MAPE** | **33.09%** |
-
-The final model was then refit using all available observations and produced a **90-business-day forward forecast** from **August 25, 2026 to December 28, 2026**, with 90% prediction intervals.
-
-These results are runtime-dependent because Yahoo Finance data can be revised and new observations become available over time.
+The 90-day forward forecast uses 90 weekdays as an approximation; it does not automatically remove NSE exchange holidays. Forecasts are educational time-series estimates and are not investment recommendations.
 
 ## Project Structure
 
